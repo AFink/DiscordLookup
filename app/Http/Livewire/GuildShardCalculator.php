@@ -14,7 +14,7 @@ class GuildShardCalculator extends Component
 
     public function calculateShardId()
     {
-        $this->resetExcept(['guildId', 'totalShards', 'guildIdDisplay']);
+        $this->resetExcept(['guildId', 'guildIdDisplay', 'totalShards']);
 
         if($this->guildId == null || $this->totalShards == null || $this->guildId == "-") return;
 
@@ -33,26 +33,26 @@ class GuildShardCalculator extends Component
     {
 		$this->guildIdDisplay = $this->guildId;
 
-		if ($this->guildId == "-") {
-			$this->guildIdDisplay = "";
+		if ($this->guildId == '-') {
+			$this->guildIdDisplay = '';
 		}
 	}
 
 	public function updated($name, $value){
-		if ($name == "guildIdDisplay") {
+		if ($name == 'guildIdDisplay') {
 			$this->guildId = $value;
 		}
 
-		if($this->guildId == "" && $this->totalShards != "") {
-			$this->guildId = "-";
+		if($this->guildId == '' && $this->totalShards != '') {
+			$this->guildId = '-';
 		}
 
-		if($this->guildId == "-" && $this->totalShards == "") {
-			$this->guildId = "";
+		if($this->guildId == '-' && $this->totalShards == '') {
+			$this->guildId = '';
 		}
 
-		if ($this->guildId == "-") {
-			$this->guildIdDisplay = "";
+		if ($this->guildId == '-') {
+			$this->guildIdDisplay = '';
 		}
 	}
 
